@@ -1,0 +1,207 @@
+/* =============================================
+   PPKD HOTEL — Print Stylesheet (Single Page)
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --color-gold: #B8975A;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Jost', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 9.5px;
+    line-height: 1.4;
+    color: #1C1C1C;
+    background: white;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+/* =============================================
+   PAGE WRAPPER
+   ============================================= */
+.print-page {
+    width: 210mm;
+    height: 297mm;          /* Fixed A4 height */
+    margin: 0 auto;
+    padding: 10mm 14mm;     /* Compact padding */
+    background: white;
+    overflow: hidden;       /* Prevent overflow */
+}
+
+@media print {
+    @page {
+        size: A4 portrait;
+        margin: 8mm 12mm;
+    }
+    html, body { height: 100%; }
+    .no-print  { display: none !important; }
+    .print-page {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        overflow: visible;
+    }
+    body { background: white; font-size: 9px; }
+}
+
+/* =============================================
+   HOTEL HEADER — compact
+   ============================================= */
+.doc-header {
+    text-align: center;
+    margin-bottom: 3mm;
+    padding-bottom: 2.5mm;
+    border-bottom: 0.8px solid #1C1C1C;
+}
+
+.doc-hotel-name {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: #1C1C1C;
+    margin-bottom: 0;
+}
+
+.doc-gold-line {
+    width: 40px;
+    height: 1px;
+    background: var(--color-gold);
+    margin: 1.5mm auto;
+}
+
+/* =============================================
+   CONFIRMATION DOC
+   ============================================= */
+.confirm-doc { font-size: 9.5px; }
+
+.confirm-title {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    color: #1C1C1C;
+    margin-bottom: 2mm;
+    letter-spacing: 0.04em;
+}
+
+.confirm-hr {
+    border: none;
+    border-top: 0.5px solid #999;
+    margin: 1.8mm 0;
+}
+
+.confirm-hr-gold {
+    border: none;
+    border-top: 0.8px solid var(--color-gold);
+    margin: 1.8mm 0;
+}
+
+.confirm-field-row {
+    display: flex;
+    margin-bottom: 1.2mm;
+    align-items: flex-start;
+    line-height: 1.35;
+}
+
+.confirm-field-label {
+    width: 38mm;
+    font-weight: 400;
+    color: #333;
+    flex-shrink: 0;
+    font-size: 9.5px;
+}
+
+.confirm-field-colon {
+    width: 5mm;
+    flex-shrink: 0;
+    color: #333;
+}
+
+.confirm-field-value {
+    flex: 1;
+    color: #1C1C1C;
+    font-weight: 500;
+    font-size: 9.5px;
+}
+
+.confirm-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 6mm;
+    margin-bottom: 1.5mm;
+}
+
+.confirm-box {
+    border: 0.5px solid #bbb;
+    padding: 2mm 3mm;
+    margin-bottom: 2mm;
+    font-size: 8.5px;
+    line-height: 1.4;
+    background: #fafafa;
+}
+
+.confirm-box p { margin-bottom: 0.8mm; }
+
+.confirm-policy { font-size: 8.5px; color: #333; }
+.confirm-policy ol { padding-left: 4mm; }
+.confirm-policy li { margin-bottom: 0.8mm; line-height: 1.35; }
+
+.confirm-signature-area { margin-top: 3mm; text-align: right; }
+.confirm-signature-line {
+    border-bottom: 0.5px solid #1C1C1C;
+    width: 45mm;
+    height: 8mm;
+    margin-left: auto;
+}
+.confirm-signature-label { font-size: 8px; color: #666; text-align: right; margin-top: 1mm; }
+
+/* Logo circle */
+.logo-circle {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    border: 1px solid var(--color-gold);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 2mm;
+    overflow: hidden;
+    background: #fff;
+}
+.logo-circle img { width: 42px; height: 42px; object-fit: contain; }
+.logo-fallback   { font-size: 18px; color: var(--color-gold); }
+
+/* =============================================
+   PRINT ACTIONS (screen only)
+   ============================================= */
+.print-actions {
+    max-width: 210mm;
+    margin: 0 auto 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 14px 0;
+}
+
+.print-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 18px;
+    font-family: var(--font-body);
+    font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    border: none; border-radius: 4px;
+    cursor: pointer; text-decoration: none;
+    transition: all 200ms ease;
+}
+
+.print-btn-primary  { background: #1C1C1C; color: white; }
+.print-btn-primary:hover { background: var(--color-gold); color: white; }
+.print-btn-outline  { background: white; color: #1C1C1C; border: 1px solid #ccc; }
+.print-btn-outline:hover { background: #f5f5f5; }
+
+@media print { .print-actions { display: none; } }
