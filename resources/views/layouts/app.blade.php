@@ -41,7 +41,7 @@
             <a href="{{ route('reservations.index') }}"
                class="nav-link {{ request()->routeIs('reservations.index') ? 'active' : '' }}">
                 <span class="nav-link-icon"><i class="fas fa-th-list"></i></span>
-                Daftar Reservasi
+                Dashboard
             </a>
 
             <a href="{{ route('reservations.create') }}"
